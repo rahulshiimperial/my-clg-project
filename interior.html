@@ -97,6 +97,17 @@
           max-width: 100%;
           height: auto;
         }
+
+        /* Allow vertical scrolling even inside carousels */
+        .carousel-project .owl-carousel {
+          touch-action: pan-y; /* Allow vertical scrolling */
+        }
+
+        /* Ensure smooth scrolling for better experience */
+        html,
+        body {
+          scroll-behavior: smooth;
+        }
       }
     </style>
   </head>
@@ -428,5 +439,29 @@
     <script src="square-master/js/google-map.js"></script>
     <script src="square-master/js/main.js"></script>
     <script src="js/year.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(".carousel-project").owlCarousel({
+          loop: true,
+          margin: 10,
+          nav: false,
+          responsive: {
+            0: {
+              items: 1,
+            },
+            600: {
+              items: 2,
+            },
+            1000: {
+              items: 3,
+            },
+          },
+          mouseDrag: true, // Allow dragging on desktop
+          touchDrag: true, // Allow touch dragging on mobile
+          pullDrag: true, // Allow "pulling" on mobile
+          freeDrag: true, // Let users scroll freely
+        });
+      });
+    </script>
   </body>
 </html>
